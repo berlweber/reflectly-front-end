@@ -25,10 +25,8 @@ const SignUpForm = () => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    console.log(formData); // this line will print the form data to the console
     try {
         const newUser = await signUp(formData);
-        console.log(newUser);
         setUser(newUser);
         navigate('/');
     } catch (error) {

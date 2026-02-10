@@ -4,7 +4,6 @@ const signUp = async (formData) => {
     const newUserData = formData; 
     if (!newUserData.email) { delete newUserData.email }
     if (!newUserData.displayName) { delete newUserData.displayName }
-    console.log(newUserData);
     try {
         const res = await fetch(`${BASE_URL}/sign-up`, {
         method: 'POST',
