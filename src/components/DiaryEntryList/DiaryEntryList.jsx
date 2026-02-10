@@ -11,7 +11,6 @@ const DiaryEntryList = (props) => {
             <ul>
                 {entries.map((entry) => (
                     <li key={entry._id}>
-                        {entry.title} {entry.reflection}
                     </li>
                 ))}
             </ul>
@@ -20,3 +19,5 @@ const DiaryEntryList = (props) => {
 }
 
 export default DiaryEntryList;
+
+// amend diary entry list - it should show timestamp 
