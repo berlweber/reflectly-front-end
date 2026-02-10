@@ -13,7 +13,7 @@ const DiaryEntryForm = (props) => {
 const handleChange = (evt) => {
     const { name, value, type, checked } = evt.target; 
 
-    setFormData({ ... formData, [name]: type === "checkbox" ? checked: value 
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked: value 
     });  
 }; 
 
@@ -53,9 +53,9 @@ const handleSubmit = (evt) => {
           value={formData.mood}
           onChange={handleChange}
         >
-          <option value="Happy">Happy</option>
-          <option value="Sad">Sad</option>
-          <option value="Bored">Bored</option>
+          <option value="happy">Happy</option>
+          <option value="sad">Sad</option>
+          <option value="bored">Bored</option>
         </select>
 
         <label htmlFor="moodLvl">What is the intensity of your current mood?</label>
@@ -68,6 +68,18 @@ const handleSubmit = (evt) => {
             value = {formData.moodLvl} 
             onChange={handleChange} 
         />
+
+        <div>
+            <label>
+                <input type="checkbox" 
+                name="isEntryPublic" 
+                checked={formData.isEntryPublic}
+                onChange={handleChange}
+                />
+                Do you want to make this entry public? 
+            </label>  
+        </div>
+
         <div>
             <label>
                 <input type="checkbox" 
@@ -75,6 +87,7 @@ const handleSubmit = (evt) => {
                 checked={formData.isEntryUsernamePublic}
                 onChange={handleChange}
                 />
+                Do you want to display your username publicly? 
             </label>  
         </div>
 
@@ -84,3 +97,5 @@ const handleSubmit = (evt) => {
     </main>
   );
 };
+
+export default DiaryEntryForm; 
