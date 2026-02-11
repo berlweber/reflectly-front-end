@@ -5,14 +5,14 @@ import { index } from '../../services/diaryService';
 
 const DiaryEntryList = (props) => {
     const entries = props.entries;
-
+    console.log(entries);
     return (
         <main>
             <h1>My Diary Entries</h1>
             <ul>
                 {entries.map((entry) => (
                     <li key={entry.timestamp}> 
-                    {`${new Date(entry.createdAt).toLocaleDateString()}`}
+                    {entry.timestamp}
                     </li>
                 ))}
             </ul>

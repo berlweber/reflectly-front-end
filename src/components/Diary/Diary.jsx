@@ -4,8 +4,7 @@ import DiaryEntryList from "../DiaryEntryList/DiaryEntryList";
 const Diary = () => {
     return (
         <>
-        <DiaryEntryForm/>
-        <DiaryEntryList/>
+        <section><DiaryEntryForm/></section>
         </>
     )
 }
