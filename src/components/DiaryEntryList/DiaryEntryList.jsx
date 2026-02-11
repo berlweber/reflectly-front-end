@@ -11,6 +11,7 @@ const DiaryEntryList = (props) => {
             <ul>
                 {entries.map((entry) => (
                     <li key={entry.timestamp}> 
+                    {`${new Date(entry.createdAt).toLocaleDateString()}`}
                     </li>
                 ))}
             </ul>
