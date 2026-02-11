@@ -12,8 +12,8 @@ import * as diaryService from './services/diaryService'
 
 const App = () => {
   const { user } = useContext(UserContext);
-  const [publicEntries, setPublicEntries] = useState();
-  const [privateEntries, setPrivateEntries] = useState();
+  const [publicEntries, setPublicEntries] = useState([]);
+  const [privateEntries, setPrivateEntries] = useState([]);
 
   useEffect(() => {
     const fetchPrivateEntries = async () => {
@@ -26,7 +26,7 @@ const App = () => {
     const fetchPublicEntries = async () => {
     const entriesData = await diaryService.index();
     
-    setPrivateEntries(entriesData);
+    setPublicEntries(entriesData);
     };
     fetchPublicEntries();
   }, [user]);
@@ -40,7 +40,7 @@ const App = () => {
           <Route path='/sign-up' element={<SignUpForm />}/>
           <Route path="/sign-in" element={<SignInForm />} />
           <Route path='/diaryEntry/new' element={<DiaryEntryForm />} />
-          <Route path='/diary-entries' element={<DiaryEntryList entries={privateEntries} />} />
+          <Route path='/diary' element={<DiaryEntryList entries={privateEntries} />} />
         </Routes>
     </>
   );
