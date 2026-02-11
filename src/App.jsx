@@ -7,22 +7,40 @@ import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
 import DiaryEntryForm from './components/DiaryEntryForm/DiaryEntryForm';
 import DiaryEntryList from './components/DiaryEntryList/DiaryEntryList';
-import Community from './components/Landing/Landing';
-import DiaryEntryShow from './components/DiaryEntryShow/DiaryEntryShow';
-import Diary from './components/Diary/Diary';
+import Community from './components/Community/Community';
+import * as diaryService from './services/diaryService'
 
 const App = () => {
   const { user } = useContext(UserContext);
+  const [publicEntries, setPublicEntries] = useState();
+  const [privateEntries, setPrivateEntries] = useState();
+
+  useEffect(() => {
+    const fetchPrivateEntries = async () => {
+    const entriesData = await diaryService.index(true);
+    
+    setPrivateEntries(entriesData);
+    };
+    fetchPrivateEntries();
+
+    const fetchPublicEntries = async () => {
+    const entriesData = await diaryService.index();
+    
+    setPrivateEntries(entriesData);
+    };
+    fetchPublicEntries();
+  }, [user]);
+
   
   return (
     <>
       <NavBar />
         <Routes>
-          <Route path='/' element={<Community/>}/>
+          <Route path='/' element={<Community entries={publicEntries}/>}/>
           <Route path='/sign-up' element={<SignUpForm />}/>
           <Route path="/sign-in" element={<SignInForm />} />
-          <Route path='/diary' element={<Diary />} />
-          <Route path='/diary/:diaryEntryId' element={<DiaryEntryShow />} />
+          <Route path='/diaryEntry/new' element={<DiaryEntryForm />} />
+          <Route path='/diary-entries' element={<DiaryEntryList entries={privateEntries} />} />
         </Routes>
     </>
   );
