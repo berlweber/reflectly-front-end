@@ -6,7 +6,7 @@ import { index } from '../../services/diaryService';
 const DiaryEntryList = (props) => {
     const entries = props.entries;
     const location = useLocation();
-    
+
     const publicEntries = entries.filter((entry) => {
         return entry.isEntryPublic === true;
     });
@@ -35,7 +35,7 @@ const DiaryEntryList = (props) => {
                     <ul>
                         {privateEntries.map((entry) => (
                             <li key={entry._id}> 
-                            {entry.createdAt} 
+                            {`${new Date(entry.createdAt).toLocaleDateString()}`} 
                             </li>
                         ))}
                     </ul>
