@@ -10,7 +10,7 @@ const DiaryEntryList = (props) => {
             <h1>My Diary Entries</h1>
             <ul>
                 {entries.map((entry) => (
-                    <li key={entry._id}>
+                    <li key={entry.timestamp}> 
                     </li>
                 ))}
             </ul>
