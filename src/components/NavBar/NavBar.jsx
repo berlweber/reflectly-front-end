@@ -1,13 +1,17 @@
 import { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
 import "./NavBar.css"
 
 const NavBar = () => {
     const { user, setUser } = useContext(UserContext)
+    const navigate = useNavigate(); // added for point below 
+
     const handleSignOut = () => {
         localStorage.removeItem('token')
         setUser(null)
+        navigate('/'); 
+        // navigate above added to fix error where person who isn't logged in still sees a list entries they haven't made on diary page
     }
 
     return (

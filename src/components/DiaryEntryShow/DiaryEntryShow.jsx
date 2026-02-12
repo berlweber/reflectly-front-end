@@ -4,7 +4,7 @@ import * as diaryService from '../../services/diaryService'
 import { UserContext } from "../../contexts/UserContext"
 import DiaryEntryForm from "../DiaryEntryForm/DiaryEntryForm"
 
-const DiaryEntryShow = () => {
+const DiaryEntryShow = (props) => { // passed props (FW)
     const [diaryEntry, setDiaryEntry] = useState(null)
     const { entryId } = useParams(); 
     console.log('checking use params', entryId); 
