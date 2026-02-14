@@ -48,8 +48,8 @@ const signIn = async (formData) => {
             return JSON.parse(atob(data.token.split('.')[1])).payload;
         }
     } catch (error) {
-        console.log(err);
-        throw new Error(err);
+        console.log(error);
+        throw new Error(error);
     }
 }
 
