@@ -8,7 +8,6 @@ import * as diaryService from '../../services/diaryService';
 
 const DiaryEntryForm = (props) => {
   const { entryId } = useParams();
-  console.log( entryId)
   const [formData, setFormData] = useState({
       title: "", 
       reflection: "", 
@@ -26,7 +25,6 @@ const DiaryEntryForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(formData) 
     if (entryId) {
       props.handleUpdateEntry(entryId, formData);
     } else {

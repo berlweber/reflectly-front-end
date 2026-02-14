@@ -1,16 +1,11 @@
 
 import { Link } from 'react-router';
 import { useLocation, } from 'react-router';
-import { index } from '../../services/diaryService';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
 import styles from './DiaryEntryList.module.css'
 
 const DiaryEntryList = (props) => {
     const entries = props.entries;
     const location = useLocation();
-
-    console.log(entries);
 
     const publicEntries = entries.filter((entry) => {
         return entry.isEntryPublic === true;
@@ -58,9 +53,6 @@ const DiaryEntryList = (props) => {
         </main>
     )
 }
-
-// we can display either created at / updated at timestamp 
-
 
 export default DiaryEntryList;
 

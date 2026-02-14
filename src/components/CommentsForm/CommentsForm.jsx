@@ -11,15 +11,10 @@ const CommentsForm = ({ diaryEntryId, handleAddComment }) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault(); 
-        
-       
         const commentData = {
             comment: formData.comment, 
         }; 
-console.log(diaryEntryId)
-        handleAddComment(commentData); 
-
-       
+        handleAddComment(commentData);
         setFormData({ comment: '' });
     }; 
 

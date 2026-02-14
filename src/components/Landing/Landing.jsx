@@ -2,7 +2,6 @@ import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router"
 import { UserContext } from "../../contexts/UserContext";
 import { useContext, useState, useEffect } from "react";
-import DiaryEntryList from "../DiaryEntryList/DiaryEntryList";
 import styles from './Landing.module.css'
 import Logowbg from '../../assets/images/Logowbg.png';
 

@@ -68,6 +68,7 @@ const SignUpForm = () => {
             name='password'
             onChange={handleChange}
             required
+            autocomplete="new-password"
           />
         </div>
 
@@ -81,6 +82,7 @@ const SignUpForm = () => {
             name='passwordConf'
             onChange={handleChange}
             required
+            autocomplete="new-password"
           />
         </div>
 

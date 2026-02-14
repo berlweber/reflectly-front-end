@@ -8,8 +8,7 @@ import styles from './DiaryEntryShow.module.css'
 
 const DiaryEntryShow = (props) => {
     const [diaryEntry, setDiaryEntry] = useState(null)
-    const { entryId } = useParams(); 
-    console.log('checking use params', entryId); 
+    const { entryId } = useParams();  
     const { user } = useContext(UserContext)
     const navigate = useNavigate();
 
@@ -18,12 +17,10 @@ const DiaryEntryShow = (props) => {
     useEffect(() => {
         const fetchDiaryEntry = async () => {
             const diaryEntryData = await diaryService.show(entryId)
-            console.log('checking diary inside use effect', diaryEntryData); 
             setDiaryEntry(diaryEntryData)
         }
         fetchDiaryEntry()
-    }, [entryId])
-    console.log('checking diary entry', diaryEntry); 
+    }, [entryId]) 
 
     const handleLike = async () => {
         await diaryService.toggleLike(entryId)

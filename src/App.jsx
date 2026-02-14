@@ -19,7 +19,6 @@ const App = () => {
   useEffect(() => {
     const fetchEntries = async () => {
     const entriesData = await diaryService.index();
-    // console.log('entries data', entriesData); 
     
     setEntries(entriesData);
     };
@@ -37,7 +36,6 @@ const App = () => {
   const handleDeleteEntry = async (isPublic, entryId) => {
     const deletedEntry = await diaryService.deleteDiaryEntry(entryId);
     setEntries(entries.filter((entry) => entry._id !== entryId ));
-    // navigate(isPublic ? '/' : '/diary');
   };
   
   const handleUpdateEntry = async ( entryId, diaryFormData) => {
@@ -93,6 +91,8 @@ const App = () => {
                 </div>
                 </>
               }/>
+              <Route path='/sign-up' element={<SignUpForm />}/>
+              <Route path="/sign-in" element={<SignInForm />} />
           </>
         ) : (
         <>
