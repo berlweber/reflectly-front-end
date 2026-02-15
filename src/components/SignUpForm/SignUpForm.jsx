@@ -55,6 +55,7 @@ const SignUpForm = () => {
             name='username'
             onChange={handleChange}
             required
+            autoComplete="username"
           />
         </div>
 
@@ -68,7 +69,7 @@ const SignUpForm = () => {
             name='password'
             onChange={handleChange}
             required
-            autocomplete="new-password"
+            autoComplete="new-password"
           />
         </div>
 
@@ -82,7 +83,7 @@ const SignUpForm = () => {
             name='passwordConf'
             onChange={handleChange}
             required
-            autocomplete="new-password"
+            autoComplete="new-password"
           />
         </div>
 
@@ -95,6 +96,7 @@ const SignUpForm = () => {
             id="displayName"
             value={displayName}
             onChange={handleChange}
+            autoComplete="display-name"
             />
         </div>
 
@@ -106,7 +108,8 @@ const SignUpForm = () => {
             name='email'
             id='email'
             value={email}
-            onChange={handleChange} 
+            onChange={handleChange}
+            autoComplete="email"
             />
         </div>
 

@@ -9,11 +9,11 @@ const NavBar = () => {
     const { user, setUser } = useContext(UserContext)
     const navigate = useNavigate(); // added for point below 
 
-    const handleSignOut = () => {
-        localStorage.removeItem('token')
-        setUser(null)
+    const handleSignOut =  () => {
         navigate('/'); 
         // navigate above added to fix error where person who isn't logged in still sees a list entries they haven't made on diary page
+        localStorage.removeItem('token')
+        setUser(null)
     }
 
     return (

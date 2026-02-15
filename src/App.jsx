@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useParams } from 'react-router';
+import { Routes, Route, useNavigate, useParams, Navigate } from 'react-router';
 import { UserContext } from './contexts/UserContext';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
@@ -10,7 +10,6 @@ import DiaryEntryList from './components/DiaryEntryList/DiaryEntryList';
 import * as diaryService from './services/diaryService'
 import Landing from './components/Landing/Landing';
 import DiaryEntryShow from './components/DiaryEntryShow/DiaryEntryShow';
-import CommentsForm from './components/CommentsForm/CommentsForm';
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -36,6 +35,7 @@ const App = () => {
   const handleDeleteEntry = async (isPublic, entryId) => {
     const deletedEntry = await diaryService.deleteDiaryEntry(entryId);
     setEntries(entries.filter((entry) => entry._id !== entryId ));
+    navigate(`/diary/`);
   };
   
   const handleUpdateEntry = async ( entryId, diaryFormData) => {
@@ -91,8 +91,6 @@ const App = () => {
                 </div>
                 </>
               }/>
-              <Route path='/sign-up' element={<SignUpForm />}/>
-              <Route path="/sign-in" element={<SignInForm />} />
           </>
         ) : (
         <>
@@ -100,6 +98,7 @@ const App = () => {
           <Route path="/sign-in" element={<SignInForm />} />
         </>
         )}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );

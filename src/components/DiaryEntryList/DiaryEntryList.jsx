@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router';
-import { useLocation, } from 'react-router';
+import { useLocation } from 'react-router';
 import styles from './DiaryEntryList.module.css'
 
 const DiaryEntryList = (props) => {
