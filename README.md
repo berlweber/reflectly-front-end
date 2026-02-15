@@ -1,6 +1,5 @@
 # Reflectly 
 
-Logo: src/assets/images/Logowbg.png
 ![Logo](./src/assets/images/Logowbg.png?raw=true "")
 
 Reflectly is an app that enables users to track their mental health
