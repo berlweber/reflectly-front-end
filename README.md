@@ -1,6 +1,6 @@
 # Reflectly 
 
-Logo: /home/polino/code/ga/projects/reflectly-front-end/src/assets/images/Logowbg.png
+Logo: src/assets/images/Logowbg.png
 
 Reflectly is an app that enables users to track their mental health
 
